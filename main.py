@@ -26,7 +26,7 @@ def generate_password():
     pyperclip.copy(password)
 
 
-# ---------------------------- SAVE PASSWORD ------------------------------- #
+# ---------------------------- SAVE / UPDATE PASSWORD ------------------------------- #
 def save_password():
     website = website_entry.get()
     email = email_entry.get()
@@ -65,6 +65,36 @@ def save_password():
             website_entry.delete(0,END)
             password_entry.delete(0,END)
 
+def update_password():
+    website = website_entry.get()
+    password = password_entry.get()
+    if len(website) > 0:
+        try:
+            with open("data.json") as data_file:
+                data = json.load(data_file)
+                if website in data:
+                    if len(password) > 0:
+                        email = email_entry.get()
+                        new_data = {
+                            website: {
+                                "email": email,
+                                "password": password,
+                            }
+                        }
+                        data.update(new_data)
+                        with open("data.json", "w") as data_file:
+                            json.dump(data, data_file, indent=4)
+                            pyperclip.copy(password)
+                            messagebox.showinfo(title="Password Updated", message="New Password Is Updated You Can Directly Paste New Password")
+                            password_entry.delete(0,END)
+                    else:
+                        messagebox.showinfo(title="Add password", message="Please generate new password")
+                else:
+                    messagebox.showinfo(title="Website not found", message=f"Password For {website} Is Not Found\nPlease Generate and add Password")
+        except FileNotFoundError:
+            messagebox.showinfo(title="Error", message="No Data File Found.\nYou Have To Add Minimum One Website To Update Password")
+    else:
+        messagebox.showinfo(title="Value Error", message="Please Enter Website")
 
 # ---------------------------- Find password ------------------------------- #
 def find_password():
@@ -111,8 +141,8 @@ website_entry = Entry(width=30)
 website_entry.grid(row=1, column=1)
 website_entry.focus()
 
-email_entry = Entry(width=49)
-email_entry.grid(row=2, column=1,columnspan=2)
+email_entry = Entry(width=30)
+email_entry.grid(row=2, column=1)
 email_entry.insert(0,"daveharsh38@gmail.com")
 
 password_entry = Entry(width=30)
@@ -120,10 +150,12 @@ password_entry.grid(row=3, column=1)
 
 # Buttons
 generate_password_button = Button(text="Generate Password",command=generate_password,width=15)
-generate_password_button.grid(row=3, column=2)
+generate_password_button.grid(row=2, column=2)
 add_button = Button(text="Add", command=save_password,width=35)
 add_button.grid(row=4, column=1,columnspan=3)
 search_button = Button(text="Search",command=find_password,width=15)
 search_button.grid(row=1,column=2)
+update_button = Button(text="Update Password",command=update_password,width=15)
+update_button.grid(row=3,column=2)
 
 window.mainloop()
