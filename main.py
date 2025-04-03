@@ -124,7 +124,7 @@ window.config(padx=50,pady=50)
 window.maxsize(500,400)
 
 canvas = Canvas(width=200,height=200)
-password_logo = PhotoImage(file="logo.png")
+password_logo = PhotoImage(file="Images/logo.png")
 canvas.create_image(100,100,image=password_logo)
 canvas.grid(column=1, row=0)
 
