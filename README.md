@@ -1,60 +1,85 @@
-# :lock: Password Manager
+# 🔐 Encrypted Password Manager (Tkinter + Fernet)
 
-## :pushpin: Overview
-A powerful and efficient **local password manager** built using **Python and Tkinter**, designed for **secure password generation, storage, and retrieval**. This tool is ideal for individuals and professionals looking to **manage multiple accounts efficiently**. It offers a **user-friendly GUI**, **auto-copy functionality**, and **quick password search & update** features, ensuring a seamless experience. The project follows **best coding practices** and uses **JSON for secure local storage**. 
+A secure and intuitive **Password Manager** built using **Python**, with a focus on **backend logic, encryption**, and **real-world usability**. Originally inspired by the **100 Days of Code** course by **Dr. Angela Yu**, this project was initially a basic password manager with simple GUI and search-by-typing functionality.
 
-**Key Features Recruiters Look For:**
-- **GUI Development using Tkinter**
-- **File Handling & JSON Data Storage**
-- **Clipboard Integration with Pyperclip**
-- **Error Handling & User Notifications**
-- **Secure Password Generation**
-- **Software Deployment (Executable File Creation)**
+I significantly improved the original version by adding:
 
-## :rocket: Features
-- :white_check_mark: **Generate Strong Passwords**
-- :white_check_mark: **Save & Update Passwords**
-- :white_check_mark: **Search for Stored Passwords**
-- :white_check_mark: **Auto-copy Passwords to Clipboard**
-- :white_check_mark: **Simple GUI with Tkinter**
+✅ Dropdown-based search  
+✅ Password **update** feature  
+✅ Clear and **show/hide password** toggling  
+✅ Full **encryption and decryption** using a securely generated key (Fernet)  
+✅ Clipboard copy with timeout  
+✅ Clean and interactive **Tkinter GUI**
 
-## :camera: Screenshots
-### Application UI
-![App Screenshot 1](Images/ui.png)
+---
 
-### Password Generation
-![App Screenshot 2](Images/generate_password.png)
+## 🧰 Technologies Used
 
-### Searching Password
-![App Screenshot 3](Images/search.png)
+- Python 3.x  
+- Tkinter (GUI)  
+- `cryptography` (Fernet for symmetric encryption)  
+- `pyperclip` (Clipboard interaction)  
+- JSON (Storage)  
 
-### Error
-![App Screenshot 4](Images/error.png)
+---
 
-### Update Password
-![App Screenshot 5](Images/update.png)
+## 📸 Screenshots
 
-## :hammer_and_wrench: Installation & Setup
-### :one: Install Required Dependencies
-Ensure you have Python installed, then install dependencies using:
-```bash
-pip install pyperclip
-```
+Here’s a quick preview of the app in action:
 
-### :two: Run the Application
-```bash
-python password_manager.py
-```
+### 🔐 Main Interface
+![Main Interface](Images/ui.png)
 
-## :computer: Technologies Used
-- **Python** :snake:
-- **Tkinter** :art: (for GUI)
-- **JSON** :scroll: (for data storage)
-- **Pyperclip** :clipboard: (for clipboard operations)
+### 🔍 Search Dropdown Feature
+![Search Dropdown](Images/search.png)
 
-## :man_technologist: Author
-- **Dave Harsh Mukeshkumar**  
-- :email: Email: [daveharsh38@gmail.com](mailto:daveharsh38@gmail.com)  
-- :link: [LinkedIn](https://www.linkedin.com/in/dave-harsh?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BaE2YgdTmRyOOzb%2BjlCLvag%3D%3D)  
-- :octocat: [GitHub](https://github.com/daveharsh38)
+### 🔄 Update Password Popup
+![Update Functionality](Images/update.png)
+
+### 🔐 Error Popup
+![Show Hide Password](Images/error.png)
+
+> 💡 Tip: Store your screenshots inside a `/screenshots` folder in the repo and use raw.githubusercontent.com links to embed them cleanly.
+
+---
+
+## 🚀 Features
+
+- 🔒 **Encrypted password storage** using Fernet  
+- 🔐 Show/Hide password toggle in the GUI  
+- 🔎 **Dropdown-based search** for saved entries  
+- ✏️ **Update existing** password credentials  
+- ➕ Add new entries (Website, Email/Username, Password)  
+- 🧹 Clear input fields after each entry  
+- 🔑 Random password generator  
+- 📋 **Clipboard copy** with auto-clear after 10 seconds  
+- ✅ Validation alerts and popups for better UX  
+
+---
+
+## 🔒 Encryption Details
+
+This app uses **Fernet** (symmetric encryption from the `cryptography` library):
+
+- All passwords are stored in an **encrypted JSON file**
+- A `key.key` file is generated once and used to encrypt/decrypt passwords
+- If the key is lost or altered, the data becomes inaccessible
+
+## 🧠 Future Improvements
+
+- [ ] Add **master password** protection at launch  
+- [ ] Implement **password strength indicator**  
+- [ ] Enable **import/export** of encrypted backups  
+- [ ] Add **dark mode** for GUI  
+- [ ] Auto-lock after inactivity  
+- [ ] Optional **biometric login** (platform-dependent)  
+- [ ] Add **backup & restore** functionality  
+## 👨‍💻 Author
+
+**Dave Harsh Mukeshkumar**
+
+- 🎯 Aspiring Backend Python Developer  
+- 📧 Email: [daveharsh38@gmail.com](mailto:daveharsh38@gmail.com)  
+- 🔗 LinkedIn: [Harsh Dave](https://www.linkedin.com/in/harsh-dave-391005233/)  
+- 🐙 GitHub: [github.com/daveharsh38](https://github.com/daveharsh38)  
 
